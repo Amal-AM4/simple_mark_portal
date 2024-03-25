@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= data.Student.name %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    
+    <h2>Profile: <%= data.Student.name %></h2>
+
+    <table>
+        <tr>
+            <th>Code</th>
+            <td><%= data.Student.code %></td>
+        </tr>
+        <tr>
+            <th>Course</th>
+            <td><%= data.Student.dept %></td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td>
+                <% if (data.Student.sex == 'm') { %>
+                    Male
+                <% } else { %>
+                    Female
+                <% } %>
+            </td>
+        </tr>
+        <tr>
+            <th>Exam Name</th>
+            <td><%= data.examination_name %></td>
+        </tr>
+        <tr>
+            <th>English Mark</th>
+            <td><%= data.english %></td>
+        </tr>
+        <tr>
+            <th>Hindi Mark</th>
+            <td><%= data.hindi %></td>
+        </tr>
+        <tr>
+            <th>Computer science Mark</th>
+            <td><%= data.cs %></td>
+        </tr>
+        <tr>
+            <th>Total Mark</th>
+            <td><%= data.total_marked %></td>
+        </tr>
+    </table>
+    <br>
+    <a href="/result">Back</a>
+
+    <script>
+        
+        if (`<%= data.total_marked %>` > 72) {
+            document.body.style.background = '#28C124';
+            document.body.style.color = '#185E43';
+            console.log('Passed');
+        } else {
+            document.body.style.background = '#D34E45';
+            document.body.style.color = '#B2D4CD';
+            console.log('Failed');
+        }
+
+    </script>
+
+</body>
+</html>

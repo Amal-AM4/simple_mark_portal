@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+
+    
+
+    <form action="/addStudent" method="post" class="form">
+        <h2>Add Student Form</h2>
+        <div class="form-group">
+            <label for="">Student Name</label>
+            <input type="text" name="name">
+        </div>
+        <div class="form-group">
+            <label for="">Student Code</label>
+            <input type="text" name="code_no">
+        </div>
+        <div class="form-group">
+            <label for="">Department</label>
+            <input type="text" name="dept">
+        </div>
+        <div class="form-group">
+            <label for="">Sex</label>
+            <input type="radio" name="gender" value="m"> Male
+            <input type="radio" name="gender" value="f"> Female
+        </div>
+
+
+        <button type="submit">Submit</button>
+    </form>
+    
+</body>
+</html>

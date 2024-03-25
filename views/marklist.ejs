@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Mark list</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    
+    <form action="/addMarklist" method="post" class="form">
+        <h2>Upload Mark List of Student</h2>
+
+        <div class="form-group">
+            <label for="">Student Name</label>
+            <select name="student_id">
+                <% uuid.forEach(i => { %>
+                    <option value="<%= i.id %>"><%= i.name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="">Examination Name</label>
+            <input type="text" name="ex_name">
+        </div>
+        <h3>Mark</h3>
+        <div class="form-group">
+            <label for="">English</label>
+            <input type="number" name="english" placeholder="Out of 100" id="english">
+        </div>
+        <div class="form-group">
+            <label for="">Hindi</label>
+            <input type="number" name="hindi" placeholder="Out of 100" id="hindi">
+        </div>
+        <div class="form-group">
+            <label for="">Computer Science</label>
+            <input type="number" name="cs" placeholder="Out of 100" id="cs">
+        </div>
+        <div class="form-group">
+            <label for="">Total Mark</label>
+            <input type="number" placeholder="Out of 300" id="total_mark" name="total">
+        </div>
+
+        <button type="submit">Submit</button>
+    
+    </form>
+
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const english = document.getElementById('english');
+            const maths = document.getElementById('maths');
+            const hindi = document.getElementById('hindi');
+            const cs = document.getElementById('cs');
+
+            const total_mark = document.getElementById('total_mark');
+
+            // Add event listeners to input fields to calculate total mark
+            [english, hindi, cs].forEach(inputField => {
+                inputField.addEventListener('input', () => {
+                    const englishVal = parseFloat(english.value) || 0;
+                    const hindiVal = parseFloat(hindi.value) || 0;
+                    const csVal = parseFloat(cs.value) || 0;
+
+                    const total = englishVal + hindiVal + csVal;
+                    total_mark.value = total;
+                });
+            });
+        });
+        
+    </script>
+    
+</body>
+</html>

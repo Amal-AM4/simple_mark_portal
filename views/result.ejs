@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full result</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+
+    <h2>Full Record of the Student</h2>
+    <br>
+
+    <table>
+        <tr>
+            <th>Sl.no</th>
+            <th>Name</th>
+            <th>Code</th> 
+            <th>Examination Name</th>
+            <th>Total Mark</th>
+            <th>Status</th>
+            <th>View</th>
+            <th>Delete</th>
+        </tr>
+
+        <% markList.forEach((row, index) => { %>
+            <tr>
+                <td><%= index + 1 %></td>
+                <td><%= row.Student.name %></td>
+                <td><%= row.Student.code %></td>
+                <td><%= row.examination_name %></td>
+                <td><%= row.total_marked %></td>
+                <td>
+                    <% if (row.total_marked > 72) { %>
+                        Pass
+                    <% } else { %>
+                        Failed
+                    <% } %>
+                </td>
+                <td><a href="/viewSingleData/<%= row.m_uuid %>">view</a></td>
+                <td><a href="/deleteSingleData/<%= row.m_uuid %>">remove</a></td>
+            </tr>
+        <% }) %>
+    </table>
+    
+</body>
+</html>
